@@ -1,3 +1,5 @@
+difference=0;
+
 function setup(){
     video = createCapture(VIDEO);
     video.size(550, 500);
@@ -23,5 +25,15 @@ function gotPoses(results) {
 
         rightWristX = results[0].pose.rightWrist.x;
         console.log("Right Wrist X= " + rightWristX);
+
+        difference=floor(leftWristX-rightWristX)
     }
+}
+
+function draw(){
+    background("#6C91C2")
+
+    textSize(difference);
+    fill("FFE787");
+    text('Vikhyath', 50, 400)
 }
